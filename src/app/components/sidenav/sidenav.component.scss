@@ -1,0 +1,19 @@
+.example-container {
+    width: 100vw;
+    height: 83vh;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .example-sidenav {
+    padding: 20px;
+    width: 200px;
+    background-color: rgb(241, 223, 241);
+  }
+
+  .example-sidenav div{
+    margin: 20px;
+    color: purple;
+  }
+

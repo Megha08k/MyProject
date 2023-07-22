@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignInComponent implements OnInit {
   loginForm!: FormGroup;
-  submitted!: boolean;
 
   dummyUsername:string = "megha@123";
   dummypassword:string="megha@123"
@@ -20,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('',[Validators.required, Validators.minLength(8)]),
+      username: new FormControl('megha@123', [Validators.required]),
+      password: new FormControl('megha@123',[Validators.required, Validators.minLength(8)]),
     })
   }
 
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm)
     if(this.loginForm.valid){
      if(this.dummyUsername === this.loginForm.value.username && this.dummypassword === this.loginForm.value.password){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/auth/home']);
       }
     }
   }
@@ -67,3 +66,4 @@ export class LoginComponent implements OnInit {
 
   }
 }
+

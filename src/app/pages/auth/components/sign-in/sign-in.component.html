@@ -1,0 +1,39 @@
+<div class="parentContainer">
+    <h3>Login</h3>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="parentContainer">
+      <div class="container">
+        <div class="fieldcontainer">
+          <label>Username<span class="danger">*</span></label><br />
+          <input
+            class="inputs"
+            placeholder="Username"
+            type="text"
+            formControlName="username"
+          />
+          <span class="danger" *ngIf="loginForm.controls['username']?.dirty && loginForm.hasError('required','username')">Username is required</span>
+        </div>
+        <div class="fieldcontainer">
+          <label>Password<span class="danger">*</span></label><br />
+          <input
+            class="inputs"
+            placeholder="Password"
+            [type]="type"
+            formControlName="password"
+          />
+          <span class="icon" (click)="onClickIcon()"><i [class]="(type === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash')"></i></span>
+          </div>
+          <div class="fieldcontainer">
+          <span class="danger" *ngIf="loginForm.controls['password']?.dirty && loginForm.hasError('required','password')">Password is required</span>
+          <span class="danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be of 8 characters</span>
+          <span class="danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be of 8 characters</span>
+        </div>
+        
+        <div>
+          <button class="login" type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

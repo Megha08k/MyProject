@@ -1,0 +1,14 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div routerLink="/about">
+     <b>About</b>
+    </div>
+    <div routerLink="/contact">
+     <strong>Contact</strong>
+    </div>
+    </mat-drawer>
+    
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
